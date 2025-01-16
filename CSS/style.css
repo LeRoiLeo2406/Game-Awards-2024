@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+/* === Réinitialisation des marges === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a; /* Couleur de fond globale */
+  color: white; /* Texte blanc global */
+  font-family: 'Afacad', sans-serif; /* Police par défaut */
+}
+
+/* === Header === */
+header {
+  background-color: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px); /* Applique un flou */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-container .logo {
+  height: 40px;
+}
+
+.header-container h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+}
+
+.button {
+  background-color: #ff4500;
+  color: white;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff6347; /* Couleur plus claire au survol */
+}
+
+/* === Hero Section === */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  height: 100%;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content img {
+  height: 200px;
+}
+
+/* === Section principale === */
+main {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #1a1a1a, #ff4500);
+  color: white;
+}
+
+.section-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* === Cartes === */
+.card {
+  display: flex;
+  align-items: flex-start;
+  margin: 80px auto;
+  background-color: #1f1f1f;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 1066px;
+  height: 600px;
+}
+
+.card-image {
+  width: 432px;
+  height: 600px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  position: relative; /* Nécessaire pour l'effet de cadre */
+  overflow: hidden;
+}
+
+/* === Effet de cadre au survol avec pseudo-élément === */
+.card-image::after {
+  content: ""; /* Génère le pseudo-élément */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px solid transparent; /* Bordure invisible par défaut */
+  border-radius: 20px; /* Coins arrondis */
+  box-sizing: border-box;
+  transition: border-color 0.3s ease; /* Transition douce */
+}
+
+.card-image:hover::after {
+  border-color: #00bfff !important; /* Bordure visible au survol */
+}
+
+/* === Contenu des cartes === */
+.card-content {
+  width: calc(100% - 432px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  padding: 60px;
+  gap: 20px;
+}
+
+.card-content h3 {
+  font-size: 30px;
+  margin: 0;
+  color: white;
+}
+
+.card-content p {
+  line-height: 1.6;
+  font-size: 18px;
+  color: #dcdcdc;
+  margin: 0;
+}
+
+.card-content .button {
+  padding: 10px 25px;
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.card-content .button:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.05);
+}
+
+/* === Footer === */
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+    max-width: 90%;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-content {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 60px;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-container h1 {
+    display: none;
+  }
+
+  .hero {
+    height: 300px;
+  }
+
+  .hero-video {
+    height: 100%;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-content img {
+    height: 80px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .card {
+    flex-direction: column;
+    max-width: 95%;
+    margin: 40px auto;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .card-content h3 {
+    font-size: 20px;
+  }
+
+  .card-content p {
+    font-size: 12px;
+    text-align: justify;
+    padding: 20px;
+  }
+
+  .card-content .button {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
